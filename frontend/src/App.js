@@ -9,6 +9,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // Add your backend URL here
+  const backendURL = "https://ai-resume-analyzer-and-classifier.onrender.com/";
+
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
     setRawText("");
@@ -27,16 +30,18 @@ function App() {
     setError("");
     setLoading(true);
     try {
-      let res;
       const formData = new FormData();
       if (file) {
         formData.append("file", file);
       } else {
         formData.append("raw_text", rawText);
       }
-      res = await axios.post("http://127.0.0.1:8000/analyze", formData, {
+
+      // Use backendURL instead of hardcoded URL
+      const res = await axios.post(`${backendURL}analyze`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
+
       setResumeData(res.data);
     } catch (err) {
       console.error(err);
