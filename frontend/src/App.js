@@ -76,7 +76,7 @@ function App() {
           <p><strong>Phone:</strong> {resumeData.phone}</p>
           <p><strong>Skills:</strong> {resumeData.skills.join(", ")}</p>
           <p><strong>Experience:</strong> {resumeData.experience_years} years ({resumeData.experience_level})</p>
-          <p><strong>Classification:</strong> {resumeData.classification} </p>
+          <p><strong>Classification:</strong> {resumeData.classification} Confidence ({resumeData.confidence})</p>
 
           <div>
             <strong>Education:</strong>
